@@ -1,0 +1,22 @@
+{
+  "name": "npm-dive-plan",
+  "version": "0.0.0",
+  "description": "Dive planner using npm-buhlmann-ZH-L16",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "istanbul cover test/test-runner.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:oliverjohnstone/npm-dive-plan.git"
+  },
+  "author": "Oliver Johnstone",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oliverjohnstone/npm-dive-plan/issues"
+  },
+  "homepage": "https://github.com/oliverjohnstone/npm-dive-plan"
+}
