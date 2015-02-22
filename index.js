@@ -1,4 +1,5 @@
 var ZHL16 = require('npm-buhlmann-ZH-L16')
+  , createSetPoint = require('./lib/create-setpoint')
   // TODO
   , BSAC88 = function () { }
 
@@ -10,6 +11,29 @@ function DivePlan (algorithm) {
   }
 
   this.setupDecoAlgorithm(algorithm)
+}
+
+DivePlan.prototype.setEquipment = function (equipment) {
+  var validEquipmentTypes = [ 'CCR', 'SCR', 'OC' ]
+  if (validEquipmentTypes.indexOf(equipment) === -1) {
+    throw new Error('Invalid equipment type selected')
+  }
+  this.equipmentType = equipment
+}
+
+function throwIfSetpointDangerous(point) {
+  if (point < 0.2) throw new Error('Set point is too low')
+  if (point > 1.6) throw new Error('Set point is too high')
+}
+
+DivePlan.prototype.setLowSetPoint = function (setpoint, switchDepth) {
+  throwIfSetpointDangerous(setpoint)
+  this.lowSetPoint = createSetPoint(setpoint, switchDepth)
+}
+
+DivePlan.prototype.setHighSetPoint = function (setpoint, switchDepth) {
+  throwIfSetpointDangerous(setpoint)
+  this.highSetPoint = createSetPoint(setpoint, switchDepth)
 }
 
 DivePlan.prototype.setupDecoAlgorithm = function (algorithm) {
