@@ -24,6 +24,8 @@
     "mocha": "^2.1.0"
   },
   "dependencies": {
-    "glob": "^4.3.5"
+    "glob": "^4.3.5",
+    "lodash.find": "^3.0.0",
+    "lodash.foreach": "^3.0.1"
   }
 }
