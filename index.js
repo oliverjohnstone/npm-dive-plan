@@ -10,7 +10,21 @@ function DivePlan (algorithm) {
     throw new Error('Please select a decompression algorithm')
   }
 
+  this.decoDepth = 0
+
   this.setupDecoAlgorithm(algorithm)
+}
+
+DivePlan.prototype.calculateProfile = function (waypoints) {
+  var table = []
+    , currentDepth = 0
+    , totalRunTime = 0
+
+
+}
+
+DivePlan.prototype.setGradientFactors = function (high, low) {
+  this.gradientFactors = { high: high, low: low }
 }
 
 DivePlan.prototype.setEquipment = function (equipment) {
